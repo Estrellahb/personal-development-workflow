@@ -1,0 +1,6 @@
+# Editor / Tool local directories
+.omo/
+
+# OS temporary files
+.DS_Store
+Thumbs.db
