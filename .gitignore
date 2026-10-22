@@ -4,3 +4,6 @@
 # OS temporary files
 .DS_Store
 Thumbs.db
+
+# Windows alternate data stream leftovers
+*:Zone.Identifier
