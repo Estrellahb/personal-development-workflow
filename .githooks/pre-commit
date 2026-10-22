@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# 启用方式：git config core.hooksPath .githooks
+set -euo pipefail
+repo_root=$(git rev-parse --show-toplevel)
+exec bash "$repo_root/scripts/check-workflow.sh"

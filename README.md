@@ -60,6 +60,12 @@ personal-development-workflow/          # 本仓库：只承载规范
 │   ├── api-spec/           # 05. 前后端接口规范
 │   ├── testing/            # 06. 实现与测试
 │   └── git-commit/         # 07. 提交规范
+├── scripts/
+│   └── check-workflow.sh   # 结构不变量自检
+├── .githooks/
+│   └── pre-commit          # 提交前自动执行自检
+├── .github/workflows/
+│   └── spec-check.yml      # CI 执行同一份自检
 └── references/             # 上游设计参考与许可归档：gpt-with-taste、grill-me、architect
 
 目标项目根目录/                          # 阶段 01 起按需生成，不属于本仓库
@@ -85,6 +91,18 @@ personal-development-workflow/          # 本仓库：只承载规范
    - 依据 PRD 与设计规范，在根目录生成 `DESIGN.md`；
    - 借助已配置在 Coding Agent 中的 Stitch MCP 服务，或访问 https://stitch.withgoogle.com/ 生成高保真交互原型，统一归档到 `docs/stitch/` 目录，作为前端页面开发落地的唯一实体方案。
 7. **接口定义与编码**：依据架构、接口契约与 `docs/stitch/` 原型逐项展开高质量编码与测试闭环。
+
+---
+
+## 🧪 规范自检
+
+仓库的结构不变量由 `scripts/check-workflow.sh` 统一校验：阶段规范非空、frontmatter 字段齐备且 `name` 与目录一致、`AGENTS.md` 索引链接可解析、阶段编号连续且与 `skills/` 目录数量一致、`README.md` 不复述阶段表。
+
+- 手动执行：`bash scripts/check-workflow.sh`
+- 本机提交前自动执行：`git config core.hooksPath .githooks`
+- CI：`.github/workflows/spec-check.yml` 在 push 与 PR 上执行同一脚本
+
+自检只覆盖结构，不判断规范内容是否好用；后者由真实项目试跑验证。
 
 ---
 
