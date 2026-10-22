@@ -28,7 +28,6 @@
 | **05** | **前后端接口规范** | RESTful 接口契约、数据结构与错误码定义 | docs/api/openapi.yaml | [skills/api-spec/SKILL.md](skills/api-spec/SKILL.md) |
 | **06** | **实现与测试** | 编码实现、单元与集成验证、真实验收 | 通过的测试命令与零失败用例清单 | [skills/testing/SKILL.md](skills/testing/SKILL.md) |
 | **07** | **提交规范** | Git 原子化提交、Conventional Commits 提交规范 | 提交记录 | [skills/git-commit/SKILL.md](skills/git-commit/SKILL.md) |
-| **08** | **上线后 Bug 处理** | 生产故障排查、复现实验、热修复与回归测试闭环 | 回归测试记录 | [skills/production-bug/SKILL.md](skills/production-bug/SKILL.md) |
 
 > 上表交付物路径一律以**目标项目根目录**为基准。本仓库只承载规范，不存放任何阶段的交付物。
 
@@ -43,8 +42,9 @@
 [06 实现与测试] <── [05 接口规范] <── [04 UI/UX 设计]
        │
        ▼
-[07 提交规范] ──> [08 上线后 Bug 处理]
+[07 提交规范]
 ```
+> 生产故障处理属人工 runbook，不在本链路内；AI 参与缺陷修复时按阶段 06 的缺陷修复纪律执行。
 > 全流程底层网络与环境应急统一由 00. 前置检查 提供支持与容错保障。
 
 1. **阶段准入**：每进入一个新阶段，AI 必须读取该阶段对应的 `SKILL.md`，并输出一句话确认当前规则已载入。

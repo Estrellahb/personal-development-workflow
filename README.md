@@ -25,7 +25,7 @@
 
 ## 🔄 全生命周期研发流程
 
-阶段编号、职责、门禁与准出交付物以 [`AGENTS.md`](AGENTS.md) 第二节为唯一真源。当前为 00~08 共 9 个阶段，本文件不再维护副本。
+阶段编号、职责、门禁与准出交付物以 [`AGENTS.md`](AGENTS.md) 第二节为唯一真源。当前为 00~07 共 8 个阶段，本文件不再维护副本。
 
 ---
 
@@ -51,7 +51,7 @@
 personal-development-workflow/          # 本仓库：只承载规范
 ├── AGENTS.md               # AI 调度中枢：阶段索引、门禁与交付物清单
 ├── README.md               # 工作流设计理念与全局操作指南
-├── skills/                 # 00~08 阶段规范库
+├── skills/                 # 00~07 阶段规范库
 │   ├── preflight/          # 00. 前置检查
 │   ├── requirements/       # 01. 需求分析
 │   ├── architecture/       # 02. 架构分析
@@ -59,8 +59,7 @@ personal-development-workflow/          # 本仓库：只承载规范
 │   ├── ui-ux/              # 04. UI/UX 设计
 │   ├── api-spec/           # 05. 前后端接口规范
 │   ├── testing/            # 06. 实现与测试
-│   ├── git-commit/         # 07. 提交规范
-│   └── production-bug/     # 08. 上线后 Bug 处理
+│   └── git-commit/         # 07. 提交规范
 └── references/             # 上游设计参考与许可归档：gpt-with-taste、grill-me、architect
 
 目标项目根目录/                          # 阶段 01 起按需生成，不属于本仓库
@@ -91,7 +90,6 @@ personal-development-workflow/          # 本仓库：只承载规范
 
 ## 🗺️ 待办事项 (Roadmap)
 
-- [ ] 补齐 `skills/testing`（06）与 `skills/git-commit`（07）两份空规范
 - [ ] 任务交接队列与待确认交接机制演进实现（待下一次优化中落地）
 - [ ] 编写 Clash 代理连通性自动探测与交互提示脚本
-- [ ] 完善上线后 Bug 排查的标准 SOP 模板与回滚规范
+- [ ] 生产故障处理 runbook 与回滚规范（人工手册，置于 docs/runbooks/，不在 skills 链路内）
