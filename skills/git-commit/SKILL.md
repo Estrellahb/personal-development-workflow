@@ -1,7 +1,7 @@
 ---
 name: git-commit
 description: 以可独立回滚为原子性判据的 Conventional Commits 提交规范，提交前强制通过格式化器、静态检查器与提交前钩子
-version: 1.0.0
+version: 1.1.0
 tags:
   - git
   - conventional-commits
@@ -19,7 +19,7 @@ tags:
 ## 一、阶段定位与准入门禁
 
 1. 准入门禁：阶段 06 的测试命令退出码为 0，失败清单为空。
-2. 提交前检查构成硬门禁：格式化器与静态检查器未通过时提交必须被拒绝，严禁使用 `--no-verify` 或等效参数绕过；确需绕过时必须在提交正文记录原因。
+2. 提交前检查构成硬门禁：格式化器与静态检查器未通过时提交必须被拒绝，严禁使用 `--no-verify` 或等效参数绕过。工具缺失或未配置属于阶段 02 的选型缺陷，必须回到阶段 02 修正选型并在 `docs/decisions-architecture.md` 登记，不得在提交阶段绕过或降级。
 
 ---
 
@@ -63,7 +63,7 @@ tags:
 
 1. 格式化器（formatter）：统一空行、缩进、引号、行宽与尾随逗号，只保证一致，不判断对错。常见实现为 Prettier、gofmt、ruff format、rustfmt。
 2. 静态检查器（linter）：检查未使用变量、隐式类型、危险写法与规则违规。常见实现为 ESLint、ruff check、golangci-lint、clippy。
-3. 提交前钩子（pre-commit hook）：在 `git commit` 前自动执行上述两项，仅检查暂存文件以避免全量扫描拖慢提交。常见实现为 Husky、lefthook、pre-commit 框架。
+3. 提交前钩子（pre-commit hook）：在 `git commit` 前自动执行上述两项，仅检查暂存文件以避免全量扫描拖慢提交。常见实现为 Husky、lefthook、pre-commit 框架。暂存文件中不含目标语言文件时，前两层按不适用处理，钩子必须显式输出 N/A，不得静默跳过。
 
 具体工具与命令由阶段 02 的栈选型确定并写入项目配置文件；本规范只约束"必须挂载并通过"，不指定实现。
 
